@@ -1,0 +1,37 @@
+<div id="<%= dom_id connection %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">First name:</strong>
+    <%= connection.first_name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Last name:</strong>
+    <%= connection.last_name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Email address:</strong>
+    <%= connection.email_address %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Company:</strong>
+    <%= connection.company %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Position:</strong>
+    <%= connection.position %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Connected on:</strong>
+    <%= connection.connected_on %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this connection", connection, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit this connection", edit_connection_path(connection), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
