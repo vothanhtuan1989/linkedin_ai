@@ -36,7 +36,7 @@ class MessagesController < ApplicationController
     respond_to do |format|
       format.turbo_stream do
         render turbo_stream: [
-          turbo_stream.append(
+          turbo_stream.replace(
             'messages',
             partial: 'chat/messages',
             locals: { messages: Message.all }
