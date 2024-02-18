@@ -1,0 +1,7 @@
+<div>
+  <h1 class="font-bold text-4xl">AI Chat</h1>
+  <div id="chat-container">
+    <%= render "form", message: Message.new %>
+    <%= render "messages", messages: Message.all %>
+  </div>
+</div>

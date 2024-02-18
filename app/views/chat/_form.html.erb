@@ -1,0 +1,6 @@
+<div id="form_message">
+  <%= form_with(model: message, method: :post) do |f| %>
+    <%= f.text_field :content, placeholder: "Type your question here..." %>
+    <%= f.submit "Send", class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  <% end %>
+</div>

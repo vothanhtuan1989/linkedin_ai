@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'chat/index'
+
+  resources :messages
   resources :connections
   resources :csv
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

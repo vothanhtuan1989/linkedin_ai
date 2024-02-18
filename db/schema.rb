@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_18_041752) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_18_085819) do
   create_table "connections", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -18,6 +18,14 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_18_041752) do
     t.string "company"
     t.string "position"
     t.date "connected_on"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.integer "chat_id"
+    t.boolean "user"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
