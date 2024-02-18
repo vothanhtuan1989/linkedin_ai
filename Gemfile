@@ -73,3 +73,6 @@ gem "tailwindcss-rails", "~> 2.3"
 # CSV upload and parsing
 gem 'roo'
 gem 'roo-xls'
+
+# OpenAI integration
+gem 'ruby-openai'
