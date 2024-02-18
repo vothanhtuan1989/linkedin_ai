@@ -100,6 +100,10 @@ GEM
       irb (~> 1.10)
       reline (>= 0.3.8)
     diff-lcs (1.5.1)
+    dotenv (3.0.2)
+    dotenv-rails (3.0.2)
+      dotenv (= 3.0.2)
+      railties (>= 6.1)
     drb (2.2.0)
       ruby2_keywords
     error_highlight (0.6.0)
@@ -220,6 +224,8 @@ GEM
     rake (13.1.0)
     rdoc (6.6.2)
       psych (>= 4.0.0)
+    redis-client (0.20.0)
+      connection_pool
     regexp_parser (2.9.0)
     reline (0.4.2)
       io-console (~> 0.5)
@@ -252,6 +258,11 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sidekiq (7.0.9)
+      concurrent-ruby (< 2)
+      connection_pool (>= 2.3.0)
+      rack (>= 2.2.4)
+      redis-client (>= 0.11.0)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -315,6 +326,7 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  dotenv-rails
   error_highlight (>= 0.4.0)
   factory_bot_rails
   importmap-rails
@@ -325,6 +337,7 @@ DEPENDENCIES
   rspec-rails
   ruby-openai
   selenium-webdriver
+  sidekiq (~> 7.0.9)
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails

@@ -70,12 +70,18 @@ end
 
 gem "tailwindcss-rails", "~> 2.3"
 
-# OpenAI integration
-gem 'ruby-openai'
-
 # Rspec
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
 end
+
+# OpenAI integration
+gem 'ruby-openai'
+
+# Simple, efficient background processing using Redis.
+# https://github.com/sidekiq/sidekiq
+gem "sidekiq", "~> 7.0.9"
+
+gem 'dotenv-rails'
