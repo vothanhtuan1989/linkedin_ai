@@ -5,63 +5,29 @@ class MessagesController < ApplicationController
   end
   
   def create
-    # get the user input from the params
     user_input = params[:message][:content]
     
-    # create a new message from the user input
-    user_message = Message.create(content: user_input, user: true)
-    
-    # get the user's network data from the Connection model
-    user_network = Connection.all.to_json
-    
-    # query the OpenAI API with the user input and the user's network data
-    client = OpenAI::Client.new(access_token: ENV["OPENAI_ACCESS_TOKEN"])
+    cmd = OpenaiCallCommand.call(user_input:)
 
-    # openai_response = client.chat(
-    #   parameters: {
-    #     model: "gpt-3.5-turbo", # Required.
-    #     messages: [{ role: "user", content: user_input}], # Required.
-    #     temperature: 0.7,
-    # })
-
-    openai_response = client.chat(
-      parameters: {
-        model: "gpt-3.5-turbo",
-        messages: [
-          {"role": "system", "content": "You are a helpful assistant that can answer questions about your LinkedIn connections."},
-          {"role": "system", "content": user_network},
-          {"role": "user", "content": user_input}
-        ],
-        max_tokens: 500,
-        temperature: 0.9,
-        stop: "\n"
-      }
-    )
-    
-    # get the AI output from the response
-    ai_output = openai_response.dig("choices", 0, "message", "content")
-    
-    # create a new message from the AI output
-    ai_message = Message.create(content: ai_output, user: false)
-    
-    # # broadcast the AI message to the chat
-    # turbo_stream.append :messages, partial: "messages/message", locals: { message: ai_message }
-
-    respond_to do |format|
-      format.turbo_stream do
-        render turbo_stream: [
-          turbo_stream.replace(
-            'messages',
-            partial: 'chat/messages',
-            locals: { messages: Message.all }
-          ),
-          turbo_stream.replace(
-            'form_message',
-            partial: 'chat/form',
-            locals: { message: Message.new }
-          )
-        ]
+    if cmd.success?
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: [
+            turbo_stream.replace(
+              'messages',
+              partial: 'chats/messages',
+              locals: { messages: Message.all }
+            ),
+            turbo_stream.replace(
+              'form_message',
+              partial: 'chats/form',
+              locals: { message: Message.new }
+            )
+          ]
+        end
       end
+    else
+      
     end
   end
 end

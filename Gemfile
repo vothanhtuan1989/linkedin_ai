@@ -86,3 +86,4 @@ gem 'ruby-openai'
 gem "sidekiq", "~> 7.0.9"
 
 gem 'dotenv-rails'
+gem "simple_command", "~> 1.0"
