@@ -85,3 +85,6 @@ gem 'ruby-openai'
 gem "sidekiq", "~> 7.0.9"
 
 gem 'dotenv-rails'
+gem "faraday", "~> 2.9"
+
+gem 'foreman', github: "ddollar/foreman"

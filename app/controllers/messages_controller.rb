@@ -20,6 +20,7 @@ class MessagesController < ApplicationController
     openai_response = client.chat(
       parameters: {
         model: "gpt-3.5-turbo", # Required.
+        # prompt: user_input,
         messages: [{ role: "user", content: user_input}], # Required.
         temperature: 0.7,
     })
