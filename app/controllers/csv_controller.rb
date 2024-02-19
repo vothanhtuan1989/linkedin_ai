@@ -1,3 +1,5 @@
+require 'csv'
+
 class CsvController < ApplicationController
   def new
   end
@@ -15,12 +17,13 @@ class CsvController < ApplicationController
       csv.each do |row|
         # create a new connection from the row values
         connection = Connection.new(
-        first_name: row["First Name"],
-        last_name: row["Last Name"],
-        email_address: row["Email Address"],
-        company: row["Company"],
-        position: row["Position"],
-        connected_on: row["Connected On"]
+          first_name: row["First Name"],
+          last_name: row["Last Name"],
+          url: row["URL"],
+          email_address: row["Email Address"],
+          company: row["Company"],
+          position: row["Position"],
+          connected_on: row["Connected On"]
         )
         
         # save the connection or handle any errors

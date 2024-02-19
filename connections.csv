@@ -1,4 +1,10 @@
-First Name,Last Name,Email Address,Company,Position,Connected On
-Alice,Smith,alice.smith@example.com,ABC Inc.,Marketing Manager,2023/01/15
-Bob,Jones,bob.jones@example.com,XYZ Ltd.,Sales Director,2023/02/10
-Charlie,Brown,charlie.brown@example.com,Peanuts Inc.,Cartoonist,2023/03/05
+First Name,Last Name,URL,Email Address,Company,Position,Connected On
+Nguyen,Minh,https://www.linkedin.com/in/minh-nguyen-mai,,RMIT University Vietnam,Talent Acquisition Advisor,21 Dec 2023
+Song Anh,PCCC,https://www.linkedin.com/in/pcccsonganh-net,,Firefighter,Firefighter,09 Jun 2023
+Nguyen,Thu Phuong,https://www.linkedin.com/in/nguyen-thu-phuong-92417278,,HelloBacsi,Product Manager,14 Apr 2023
+Bella,Dang,https://www.linkedin.com/in/bella-dang-7045bab7,,ZALORA Group,IT,01 Feb 2023
+Abhishek,Vaid,https://www.linkedin.com/in/abhishek-vaid-33b769260,,Oracle,Territory Manager at Oracle,24 Jan 2023
+Ritin,Ravindran,https://www.linkedin.com/in/ritin123,,Stormbreaker Sports,Managing Director and Partner,25 Dec 2022
+Amna,Khalid,https://www.linkedin.com/in/amna-khalid-29417522a,,VTIMA Consulting firm,Recruitment Consultant,25 Dec 2022
+kajal,Arora,https://www.linkedin.com/in/kajal-arora-4a0821248,,Freelance,Shopify laravel expert,25 Dec 2022
+Parveen,Narasab,https://www.linkedin.com/in/parveen-narasab-848698219,,Alliance Study,Head Of Product Development,25 Dec 2022
