@@ -65,6 +65,6 @@ class ConnectionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def connection_params
-      params.require(:connection).permit(:first_name, :last_name, :email_address, :company, :position, :connected_on)
+      params.require(:connection).permit(:first_name, :last_name, :url, :email_address, :company, :position, :connected_on)
     end
 end
