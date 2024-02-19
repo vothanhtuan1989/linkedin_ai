@@ -1,9 +1,4 @@
 class MessagesController < ApplicationController
-  def index
-    # get all the messages ordered by created_at
-    @messages = Message.order(:created_at)
-  end
-  
   def create
     user_input = params[:message][:content]
     
