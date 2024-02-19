@@ -12,17 +12,31 @@ class MessagesController < ApplicationController
     user_message = Message.create(content: user_input, user: true)
     
     # get the user's network data from the Connection model
-    user_network = Connection.all
+    user_network = Connection.all.to_json
     
     # query the OpenAI API with the user input and the user's network data
     client = OpenAI::Client.new(access_token: ENV["OPENAI_ACCESS_TOKEN"])
 
+    # openai_response = client.chat(
+    #   parameters: {
+    #     model: "gpt-3.5-turbo", # Required.
+    #     messages: [{ role: "user", content: user_input}], # Required.
+    #     temperature: 0.7,
+    # })
+
     openai_response = client.chat(
       parameters: {
-        model: "gpt-3.5-turbo", # Required.
-        messages: [{ role: "user", content: user_input}], # Required.
-        temperature: 0.7,
-    })
+        model: "gpt-3.5-turbo",
+        messages: [
+          {"role": "system", "content": "You are a helpful assistant that can answer questions about your LinkedIn connections."},
+          {"role": "system", "content": user_network},
+          {"role": "user", "content": user_input}
+        ],
+        max_tokens: 500,
+        temperature: 0.9,
+        stop: "\n"
+      }
+    )
     
     # get the AI output from the response
     ai_output = openai_response.dig("choices", 0, "message", "content")

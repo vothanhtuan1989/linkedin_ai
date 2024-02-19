@@ -79,6 +79,7 @@ end
 
 # OpenAI integration
 gem 'ruby-openai'
+# gem 'ruby-openai', "~> 5.1"
 
 # Simple, efficient background processing using Redis.
 # https://github.com/sidekiq/sidekiq
