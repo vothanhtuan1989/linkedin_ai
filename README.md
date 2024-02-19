@@ -1,24 +1,39 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## What is LinkedIn AI?
+This application is a simple tool for analyzing your LinkedIn network. It allows you to upload a CSV file containing your LinkedIn connections and use the OpenAI API to generate insights from the data. You can explore various aspects of your network, such as the most common first name, last name, email, position, and linkedin URL of your connections. You can also ask natural language questions to the AI and get relevant answers based on your data.
 
-Things you may want to cover:
+## How to run on your local machine?
+### Requirements
+- Ruby version 3.1.2
+- Rails version 7.1.3
 
-* Ruby version
+### Steps
+- Clone the code to your local machine.
+```command
+  git clone git@github.com:vothanhtuan1989/linkedin_ai.git
+```
 
-* System dependencies
+- Install dependencies with bundle install.
+```command
+  bundle install
+```
 
-* Configuration
+- Set ENV variables on your local machine, and change some values as you wish and run it on terminal.
+```command
+  export OPENAI_ACCESS_TOKEN=xxx
+```
+or create .env in root directory with value
+```command
+  OPENAI_ACCESS_TOKEN=xxx
+```
 
-* Database creation
+- Setup the database your local machine.
+```command
+  rails db:create db:migrate db:seed
+```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- Run the server and enjoy the service.
+```command
+  rails server
+```
