@@ -37,3 +37,28 @@ or create .env in root directory with value
 ```command
   rails server
 ```
+
+## How to use Linkedin AI?
+### Step 1: download your data from Linkedin
+```command
+  https://www.linkedin.com/mypreferences/d/download-my-data
+```
+
+#### Step 2: upload your CSV file to system
+```command
+  http://localhost:3000/csv/new
+```
+
+#### Step 3: type your connection you want to find
+```command
+  http://localhost:3000/chats/index
+```
+
+## Feature need to do in next release:
+- Add devise to create user and authentication.
+- Add chat model to handle conversion of each user.
+- Add user_id to connection model to handle connection of each user.
+- Move OpenAi request to Active Job and broadcast with the Turbo::StreamsChannel
+```command
+Turbo::StreamsChannel.broadcast_update_to("channel_name", target: 'ai_output', partial: 'ai/output', locals:{message: message})                                   
+```command
