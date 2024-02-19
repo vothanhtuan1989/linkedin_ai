@@ -61,4 +61,4 @@ or create .env in root directory with value
 - Move OpenAi request to Active Job and broadcast with the Turbo::StreamsChannel
 ```command
 Turbo::StreamsChannel.broadcast_update_to("channel_name", target: 'ai_output', partial: 'ai/output', locals:{message: message})                                   
-```command
+```
