@@ -6,6 +6,7 @@ class OpenaiRequestCommand
   end
 
   def call
+    return false unless validate_user_input
     create_message(content: user_input, user: true)
     create_message(content: openai_output, user: false)
   end
@@ -14,12 +15,21 @@ class OpenaiRequestCommand
 
   attr_reader :user_input
 
+  def validate_user_input
+    unless user_input.present?
+      errors.add(:error, "User input can not be blank!")
+      false
+    else
+      true
+    end
+  end
+
   def client
     OpenAI::Client.new(access_token: ENV["OPENAI_ACCESS_TOKEN"])
   end
 
   def user_network
-    Connection.all.to_json
+    @user_network ||= Connection.all.to_json
   end
 
   def openai_response
@@ -49,7 +59,7 @@ class OpenaiRequestCommand
       if user == true
         errors.add(:error, message.errors.full_messages.to_sentence)
       else
-        errors.add(:error, "OpenAI was not response. Please try again!")
+        errors.add(:error, "OpenAI did not respond. Please try again!")
       end
     end
   end
