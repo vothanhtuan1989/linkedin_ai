@@ -28,7 +28,7 @@ class UploadCsvCommand
     csv = CSV.new(file.read, headers: true)
 
     Connection.transaction do
-      csv.each.with_index do |row, i|
+      csv.each do |row|
         connection = Connection.create(
           first_name: row["First Name"],
           last_name: row["Last Name"],
