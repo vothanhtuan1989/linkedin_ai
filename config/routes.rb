@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'chat_responses/show'
+  get 'chats/index'
   get 'chat/index'
 
   resources :messages
@@ -10,6 +12,8 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 
+  resource :chat_responses, only: [:show]
+
   # Defines the root path route ("/")
-  root "connections#index"
+  root "chats#index"
 end
