@@ -60,5 +60,5 @@ or create .env in root directory with value
 - Add user_id to connection model to handle connection of each user.
 - Move OpenAi request to Active Job and broadcast with the Turbo::StreamsChannel
 ```command
-Turbo::StreamsChannel.broadcast_update_to("channel_name", target: 'ai_output', partial: 'ai/output', locals:{message: message})                                   
+Turbo::StreamsChannel.broadcast_update_to("channel_name", target: 'ai_output', partial: 'ai/output', locals: { message: message })
 ```
