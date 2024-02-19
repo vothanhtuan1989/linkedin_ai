@@ -1,4 +1,4 @@
-class OpenaiCallCommand
+class OpenaiRequestCommand
   prepend SimpleCommand
 
   def initialize(user_input:)
@@ -6,8 +6,8 @@ class OpenaiCallCommand
   end
 
   def call
-    Message.create!(content: user_input, user: true)
-    Message.create!(content: openai_output, user: false)
+    create_message(content: user_input, user: true)
+    create_message(content: openai_output, user: false)
   end
 
   private
@@ -43,6 +43,14 @@ class OpenaiCallCommand
   end
 
   def create_message(content:, user:)
-    Message.create(content:, user:)
+    message = Message.new(content:, user:)
+
+    unless message.save
+      if user == true
+        errors.add(:error, message.errors.full_messages.to_sentence)
+      else
+        errors.add(:error, "OpenAI was not response. Please try again!")
+      end
+    end
   end
 end

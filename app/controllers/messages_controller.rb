@@ -7,7 +7,7 @@ class MessagesController < ApplicationController
   def create
     user_input = params[:message][:content]
     
-    cmd = OpenaiCallCommand.call(user_input:)
+    cmd = OpenaiRequestCommand.call(user_input:)
 
     if cmd.success?
       respond_to do |format|
@@ -27,7 +27,16 @@ class MessagesController < ApplicationController
         end
       end
     else
-      
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: [
+            turbo_stream.replace(
+              'flash',
+              html: cmd.errors[:error][0]
+            )
+          ]
+        end
+      end
     end
   end
 end

@@ -1,5 +1,6 @@
 <div>
   <h1 class="font-bold text-4xl">AI Chat</h1>
+  <div id="flash"></div>
   <div id="chat-container">
     <%= render "messages", messages: Message.all %>
     <%= render "form", message: Message.new %>
