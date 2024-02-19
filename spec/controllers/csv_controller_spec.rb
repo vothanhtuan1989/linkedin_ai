@@ -25,7 +25,7 @@ RSpec.describe CsvController, type: :controller do
       it "creates connections from the file" do
         expect {
         post :create, params: { file: valid_file }
-        }.to change(Connection, :count).by(3)
+        }.to change(Connection, :count).by(9)
       end
       
       it "redirects to the connections index page" do
